@@ -14,9 +14,17 @@
 #     **Вывод:** Парам пам-пам  
 
 
-his_string = str(input('Введите стих: '))
-his_list = list(his_string.split())
-result = list(map(lambda my_list: my_list.count('а'), his_list))
+bear_string = str(input('Введите стих: '))
+bear_list = list(bear_string.lower().split())
+list_letter = ['а', 'у', 'о', 'ы', 'и', 'э', 'я', 'ю', 'ё', 'е']
+res_letter = []
 
-print("Парам пам-пам" if sum(result) / len(result) == result[0] else "Пам парам")
+for item in bear_list:
+    result = 0
+    for letter in list_letter:
+        temp_result = sum(list(map(lambda my_list: my_list.count(letter), item)))
+        result += temp_result
+    res_letter.append(result)
+
+print("Парам пам-пам" if sum(res_letter) / len(res_letter) == res_letter[0] else "Пам парам")
 
